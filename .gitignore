@@ -1,0 +1,23 @@
+# Entornos y caché de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Datos recogidos y resultados: no se publican
+*.db
+*.sqlite
+out/
+
+# Logs
+*.log
+
+# Secretos
+.env
+*.env
+
+# Editor / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
