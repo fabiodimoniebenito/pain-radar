@@ -1,0 +1,184 @@
+# Configuración de pain_radar. Edita nichos, consultas y subreddits a tu gusto.
+# Comprueba que los subreddits existen y tienen actividad: los nombres son ejemplos.
+
+[ollama]
+host = "http://localhost:11434"
+llm_model = "qwen2.5:7b-instruct"   # prueba qwen2.5:3b-instruct si tu equipo va lento
+embed_model = "nomic-embed-text"
+# think = false                     # descomenta solo si usas un modelo con modo "thinking" (p. ej. qwen3)
+
+[collect]
+days = 365            # antigüedad máxima de los textos
+hn_pages = 2          # páginas de 50 resultados por consulta en Hacker News
+reddit_limit = 100    # posts por consulta y subreddit
+
+[analysis]
+min_chars = 80        # descarta textos más cortos
+max_chars = 1500      # trunca textos más largos antes de enviarlos al LLM
+cluster_distance = 0.35   # menor = clusters más estrictos; mayor = más agrupados
+min_cluster_size = 3
+top_clusters = 25     # clusters que se etiquetan y salen en el informe
+
+[[niches]]
+name = "hosteleria"
+queries = [
+  "restaurant staff scheduling nightmare",
+  "restaurant food waste inventory problem",
+  "fast food employee turnover training",
+  "restaurant spreadsheet manual process",
+]
+subreddits = ["restaurateur", "KitchenConfidential", "smallbusiness"]
+
+[[niches]]
+name = "autonomos"
+queries = [
+  "freelancer invoicing chasing late payments",
+  "freelance accounting expenses spreadsheet",
+  "self-employed taxes paperwork frustrating",
+  "e-invoicing compliance small business",
+]
+subreddits = ["freelance", "smallbusiness", "Entrepreneur"]
+
+[[niches]]
+name = "pymes_servicios"
+queries = [
+  "clinic appointment no-shows reminders",
+  "small business answering customer calls whatsapp",
+  "gym studio membership admin software frustrating",
+  "small business too many manual tasks automate",
+]
+subreddits = ["smallbusiness", "Entrepreneur", "fitnessbusiness"]
+
+# ---------------------------------------------------------------------------
+# Más nichos. Las consultas van en inglés porque Hacker News y la mayoría de
+# subreddits lo son; para mercado español, apóyate en `import` con tus propias notas.
+
+[[niches]]
+name = "cumplimiento_ue"
+queries = [
+  "GDPR compliance small business burden",
+  "NIS2 compliance small company how to",
+  "EU AI Act compliance startup confused",
+  "e-invoicing mandate small business software",
+  "accessibility act compliance website small business",
+]
+subreddits = ["gdpr", "smallbusiness", "startups", "msp"]
+
+[[niches]]
+name = "alquiler_inmobiliaria"
+queries = [
+  "landlord managing tenants rent collection spreadsheet",
+  "small property manager maintenance requests chaos",
+  "vacation rental host channel manager double booking",
+  "real estate agent lead follow up manual",
+]
+subreddits = ["Landlord", "PropertyManagement", "airbnb_hosts", "realtors"]
+
+[[niches]]
+name = "transporte_logistica"
+queries = [
+  "small trucking company dispatch paperwork",
+  "freight broker manual quoting tracking",
+  "delivery fleet route planning small business",
+  "courier company proof of delivery admin",
+]
+subreddits = ["FreightBrokers", "Truckers", "smallbusiness", "logistics"]
+
+[[niches]]
+name = "construccion_reformas"
+queries = [
+  "contractor estimating quotes takes too long",
+  "small construction company scheduling subcontractors",
+  "renovation business client communication change orders",
+  "contractor invoicing job costing spreadsheet",
+]
+subreddits = ["Construction", "Contractor", "smallbusiness", "HomeImprovement"]
+
+[[niches]]
+name = "talleres_automocion"
+queries = [
+  "auto repair shop software appointments estimates",
+  "mechanic shop customer communication parts ordering",
+  "garage owner paperwork time wasted",
+]
+subreddits = ["Justrolledintotheshop", "MechanicAdvice", "smallbusiness"]
+
+[[niches]]
+name = "clinicas_salud"
+queries = [
+  "dental practice patient no-shows reminders",
+  "physiotherapy clinic admin scheduling software",
+  "private clinic patient intake paperwork forms",
+  "medical practice phone calls front desk overwhelmed",
+]
+subreddits = ["Dentistry", "physicaltherapy", "medicine", "smallbusiness"]
+
+[[niches]]
+name = "formacion_academias"
+queries = [
+  "tutoring business scheduling payments parents",
+  "training center student administration spreadsheets",
+  "online course creator student support repetitive questions",
+  "language school lesson planning admin time",
+]
+subreddits = ["Teachers", "OnlineTutoring", "smallbusiness", "Entrepreneur"]
+
+[[niches]]
+name = "gestorias_despachos"
+queries = [
+  "accounting firm client document collection chasing",
+  "small law firm intake time tracking billing",
+  "bookkeeper receipts categorization manual work",
+  "tax preparer client documents email chaos",
+]
+subreddits = ["Accounting", "taxpros", "Bookkeeping", "lawfirm"]
+
+[[niches]]
+name = "ecommerce_pequeno"
+queries = [
+  "small online store returns handling customer support time",
+  "ecommerce inventory sync multiple channels problem",
+  "shopify store owner repetitive tasks automate",
+  "dropshipping supplier product data updates manual",
+]
+subreddits = ["ecommerce", "shopify", "FulfillmentByAmazon", "smallbusiness"]
+
+[[niches]]
+name = "agroalimentario"
+queries = [
+  "small farm record keeping traceability paperwork",
+  "food producer compliance labeling documentation",
+  "farmers market vendor inventory orders",
+  "small brewery distillery reporting excise paperwork",
+]
+subreddits = ["farming", "homestead", "smallbusiness", "foodscience"]
+
+[[niches]]
+name = "hoteles_turismo"
+queries = [
+  "small hotel guesthouse booking management software",
+  "tour operator guide scheduling bookings manual",
+  "hospitality staff turnover training small hotel",
+  "restaurant reservations no-shows deposits",
+]
+subreddits = ["hotels", "airbnb_hosts", "smallbusiness", "TravelAgents"]
+
+[[niches]]
+name = "devtools_equipos_pequenos"
+queries = [
+  "small team cloud costs out of control AWS bill",
+  "startup on-call incident management too heavy",
+  "documentation outdated small engineering team",
+  "developer onboarding internal tooling time wasted",
+  "LLM app evaluation monitoring hard to test",
+]
+subreddits = ["devops", "aws", "ExperiencedDevs", "startups", "LLMDevs"]
+
+[[niches]]
+name = "comercio_local"
+queries = [
+  "brick and mortar shop inventory pos integration online",
+  "local retail small shop loyalty customers marketing time",
+  "independent shop owner competing with amazon operations",
+]
+subreddits = ["smallbusiness", "retailowners", "Entrepreneur"]
